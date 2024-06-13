@@ -1,7 +1,7 @@
 import XCTest
-@testable import TravelAI
+@testable import AIComposableFeature
 
-final class TravelAITests: XCTestCase {
+final class AIComposableFeatureTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest
