@@ -30,6 +30,18 @@ public struct FlightView<Content: View>: View {
     var onRequest: ([String]) -> Void
 
     let content: () -> Content
+    
+    public init(items: [String],
+                selectedItems: Binding<[String]>,
+                isLoading: Bool,
+                onRequest: @escaping ([String]) -> Void,
+                content: @escaping () -> Content) {
+        self.items = items
+        self._selectedItems = selectedItems
+        self.isLoading = isLoading
+        self.onRequest = onRequest
+        self.content = content
+    }
 
     public var body: some View {
         ZStack {
