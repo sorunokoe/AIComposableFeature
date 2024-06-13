@@ -30,33 +30,6 @@ struct CategoriesView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
-            DatePicker(
-                selection: $dateValue,
-                in: Date.now ... Calendar.current.date(byAdding: .day, value: 250, to: .distantFuture)!,
-                displayedComponents: .date
-            ) {
-                Text("Select a date")
-                    .font(.system(size: 18, weight: .medium))
-                    .foregroundStyle(.white)
-                    .tint(.white)
-            }
-            .accentColor(.white)
-            .foregroundStyle(.white)
-            .padding(.horizontal, 20)
-            Button(action: {
-                onDidSelect(dateValue.formatted(date: .complete, time: .omitted))
-            }, label: {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(.white.opacity(0.1))
-                    .frame(height: 60)
-                    .overlay {
-                        Text("Add \(dateValue, formatter: dateFormatter)")
-                            .font(.system(size: 18, weight: .medium))
-                            .foregroundStyle(.white)
-                    }
-            })
-            .padding(.horizontal, 20)
-
             TextField(text: $fieldValue) {
                 Text("Search..")
                     .foregroundStyle(.gray)
