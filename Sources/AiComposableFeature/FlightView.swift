@@ -23,8 +23,8 @@ public struct FlightView<Content: View>: View {
 
     @State private var bublesViewSize: CGSize = .zero
 
-    @State var selectedItems: [String] = []
-    @State var items: [String]
+    @State private var selectedItems: [String] = []
+    var items: [String]
     var isLoading: Bool = false
     var onRequest: ([String]) -> Void
 
