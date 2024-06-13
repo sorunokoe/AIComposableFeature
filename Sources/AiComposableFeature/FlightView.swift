@@ -23,24 +23,13 @@ public struct FlightView<Content: View>: View {
 
     @State private var bublesViewSize: CGSize = .zero
 
-    @State private var selectedItems: [String] = []
     var items: [String]
+    @Binding var selectedItems: [String]
+    
     var isLoading: Bool = false
     var onRequest: ([String]) -> Void
 
     let content: () -> Content
-
-    public init(
-        items: [String],
-        isLoading: Bool,
-        onRequest: @escaping ([String]) -> Void,
-        content: @escaping () -> Content
-    ) {
-        self.items = items
-        self.isLoading = isLoading
-        self.onRequest = onRequest
-        self.content = content
-    }
 
     public var body: some View {
         ZStack {
@@ -148,7 +137,7 @@ public struct FlightView<Content: View>: View {
         "Paris 🇫🇷",
         "Paris 🇫🇷",
         "Paris 🇫🇷",
-    ], isLoading: false, onRequest: { _ in }) {
+    ], selectedItems: .constant([]), isLoading: false, onRequest: { _ in }) {
         Text("450 euro")
             .font(.system(size: 18, weight: .medium))
     }
