@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BubbleView: View {
+public struct BubbleView: View {
     var size: CGFloat
     private let childSize: CGFloat
     @State var frame1: CGSize
@@ -44,7 +44,7 @@ struct BubbleView: View {
     @State var rotation2: Double = 0
     @State var rotation3: Double = 0
 
-    init(size: CGFloat) {
+    public init(size: CGFloat) {
         self.size = size
         self.childSize = size
         self.frame1 = .init(width: childSize, height: childSize)
@@ -56,7 +56,7 @@ struct BubbleView: View {
         self.stepColor = stepColor
     }
 
-    var body: some View {
+    public var body: some View {
         GeometryReader { geo in
             ZStack {
                 LinearGradient(
