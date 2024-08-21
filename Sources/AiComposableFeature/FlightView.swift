@@ -17,8 +17,7 @@ public struct FlightView<Content: View>: View {
         .red,
         .yellow,
         .blue,
-        .green,
-        .purple,
+        .purple
     ]
 
     @State private var bublesViewSize: CGSize = .zero
@@ -45,8 +44,6 @@ public struct FlightView<Content: View>: View {
 
     public var body: some View {
         ZStack {
-            Color.black
-                .ignoresSafeArea()
             ScrollView {
                 VStack {
                     GeometryReader { geo in
@@ -65,7 +62,7 @@ public struct FlightView<Content: View>: View {
                                                 style: .init(lineWidth: 2)
                                             )
                                             .frame(width: size, height: size)
-                                            .shadow(color: .white, radius: 5)
+                                            .shadow(color: .primary, radius: 5)
                                     }
                                 }
                                 .overlay {
@@ -73,9 +70,9 @@ public struct FlightView<Content: View>: View {
                                 }
                             ForEach(selectedItems, id: \.self) { item in
                                 Circle()
-                                    .fill(colors.randomElement()?.opacity(0.1) ?? .white)
+                                    .fill(colors.randomElement()?.opacity(0.1) ?? Color.primary)
                                     .frame(width: 90, height: 90)
-                                    .shadow(color: .white, radius: 2)
+                                    .shadow(color: .primary, radius: 2)
                                     .overlay {
                                         Button(action: {
                                             withAnimation {
@@ -84,23 +81,23 @@ public struct FlightView<Content: View>: View {
                                         }, label: {
                                             ZStack {
                                                 Circle()
-                                                    .fill(.white)
+                                                    .fill(.primary)
                                                     .frame(width: 24, height: 24)
                                                 Image(systemName: "minus")
-                                                    .foregroundStyle(.black)
+                                                    .foregroundStyle(.primary)
                                             }
                                         })
-                                        .shadow(color: .white, radius: 10)
+                                        .shadow(color: .primary, radius: 10)
                                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                                     }
                                     .overlay(content: {
                                         Text(item)
                                             .font(.system(size: 14, weight: .medium))
                                             .multilineTextAlignment(.center)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(Color.primary)
                                     })
                                     .position(calculatePosition(with: item))
-                                    .shadow(color: .white.opacity(0.5), radius: 0.5)
+                                    .shadow(color: Color.primary.opacity(0.5), radius: 0.5)
                                     .shiver()
                             }
                         }

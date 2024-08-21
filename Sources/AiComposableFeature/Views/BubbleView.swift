@@ -26,14 +26,14 @@ public struct BubbleView: View {
 
     let colors: [Color] = [
         .red,
-        .yellow,
+//        .yellow,
         .blue,
-        .green,
+//        .green,
         .purple,
     ]
     let colors2: [Color] = [
-        .yellow,
-        .green,
+//        .yellow,
+//        .green,
         .red,
         .purple,
         .blue
@@ -60,15 +60,16 @@ public struct BubbleView: View {
         GeometryReader { geo in
             ZStack {
                 LinearGradient(
-                    colors: [colors[stepColor], colors2[stepColor]],
+                    colors: [colors[stepColor].opacity(0.3),
+                             colors2[stepColor].opacity(0.3)],
                     startPoint: .bottomLeading,
                     endPoint: .topTrailing
                 )
                 .overlay {
                     Circle()
-                        .stroke(colors[stepColor], lineWidth: 3)
+                        .stroke(colors[stepColor].opacity(0.5), lineWidth: 3)
                         .frame(width: frame3.width, height: frame3.height)
-                        .blur(radius: 5)
+                        .blur(radius: 12)
                         .shadow(color: colors2[stepColor], radius: 15)
                 }
             }

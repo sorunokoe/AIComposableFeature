@@ -30,7 +30,7 @@ struct CategoriesView: View {
             .padding(16)
             .background {
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(.white.opacity(0.1))
+                    .fill(Color.black.opacity(0.1))
             }
             .foregroundStyle(.white)
             .background(.clear)
@@ -45,12 +45,12 @@ struct CategoriesView: View {
                             onDidSelect(city)
                         }, label: {
                             RoundedRectangle(cornerRadius: 20)
-                                .fill(.white.opacity(0.1))
+                                .fill(Color.black.opacity(0.1))
                                 .frame(height: 65)
                                 .overlay {
                                     Text(city)
-                                        .font(.system(size: 18, weight: .regular))
-                                        .foregroundStyle(.white)
+                                        .font(.system(size: 18, weight: .medium))
+                                        .foregroundStyle(.black.opacity(0.8))
                                 }
                         })
                     }
