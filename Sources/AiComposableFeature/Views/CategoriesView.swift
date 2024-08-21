@@ -49,7 +49,7 @@ struct CategoriesView: View {
                                 .frame(height: 65)
                                 .overlay {
                                     Text(city)
-                                        .font(.system(size: 18, weight: .medium))
+                                        .font(.system(size: 16, weight: .regular))
                                         .foregroundStyle(.black.opacity(0.8))
                                 }
                         })
