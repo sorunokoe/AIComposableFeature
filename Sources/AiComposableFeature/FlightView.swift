@@ -62,7 +62,7 @@ public struct FlightView<Content: View>: View {
                                                 style: .init(lineWidth: 2)
                                             )
                                             .frame(width: size, height: size)
-                                            .shadow(color: .primary, radius: 5)
+                                            .shadow(color: Color.white, radius: 5)
                                     }
                                 }
                                 .overlay {
@@ -70,7 +70,7 @@ public struct FlightView<Content: View>: View {
                                 }
                             ForEach(selectedItems, id: \.self) { item in
                                 Circle()
-                                    .fill(colors.randomElement()?.opacity(0.1) ?? Color.primary)
+                                    .fill(Color.white.opacity(0.1))
                                     .frame(width: 90, height: 90)
                                     .shadow(color: .primary, radius: 2)
                                     .overlay {
@@ -81,23 +81,23 @@ public struct FlightView<Content: View>: View {
                                         }, label: {
                                             ZStack {
                                                 Circle()
-                                                    .fill(.primary)
+                                                    .fill(.white.opacity(0.8))
                                                     .frame(width: 24, height: 24)
                                                 Image(systemName: "minus")
-                                                    .foregroundStyle(.primary)
+                                                    .foregroundStyle(.black)
                                             }
                                         })
-                                        .shadow(color: .primary, radius: 10)
+                                        .shadow(color: .black.opacity(0.2), radius: 1)
                                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                                     }
                                     .overlay(content: {
                                         Text(item)
                                             .font(.system(size: 14, weight: .medium))
                                             .multilineTextAlignment(.center)
-                                            .foregroundStyle(Color.primary)
+                                            .foregroundStyle(Color.black)
                                     })
                                     .position(calculatePosition(with: item))
-                                    .shadow(color: Color.primary.opacity(0.5), radius: 0.5)
+                                    .shadow(color: Color.black.opacity(0.1), radius: 0.5)
                                     .shiver()
                             }
                         }
@@ -146,7 +146,7 @@ public struct FlightView<Content: View>: View {
         "Paris 🇫🇷",
         "Paris 🇫🇷",
         "Paris 🇫🇷",
-    ], selectedItems: .constant([]), isLoading: false, onRequest: { _ in }) {
+    ], selectedItems: .constant(["Paris 🇫🇷", "Berlin", "Frankfurt", "Astana", "New-York"]), isLoading: false, onRequest: { _ in }) {
         Text("450 euro")
             .font(.system(size: 18, weight: .medium))
     }
