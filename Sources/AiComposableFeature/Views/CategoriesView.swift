@@ -66,10 +66,10 @@ struct CategoriesView: View {
 #Preview {
     CategoriesView(items: [
         "Paris 🇫🇷",
+        "Frankfurt",
         "Paris 🇫🇷",
         "Paris 🇫🇷",
         "Paris 🇫🇷",
         "Paris 🇫🇷",
-        "Paris 🇫🇷",
-    ]) { _ in }
+    ]) { print($0) }
 }

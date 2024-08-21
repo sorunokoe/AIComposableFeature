@@ -118,7 +118,7 @@ public struct FlightView<Content: View>: View {
                 }
             }
         }
-        .onChange(of: items) {
+        .onChange(of: selectedItems) {
             requestTravelOptions()
         }
     }
@@ -146,7 +146,7 @@ public struct FlightView<Content: View>: View {
         "Paris 🇫🇷",
         "Paris 🇫🇷",
         "Paris 🇫🇷",
-    ], selectedItems: .constant(["Paris 🇫🇷", "Berlin", "Frankfurt", "Astana", "New-York"]), isLoading: false, onRequest: { _ in }) {
+    ], selectedItems: .constant([]), isLoading: false, onRequest: { print($0) }) {
         Text("450 euro")
             .font(.system(size: 18, weight: .medium))
     }
